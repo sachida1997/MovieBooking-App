@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.mat-toolbar.mat-warn {
+  background: #015249;
+  color: #fff;
+}

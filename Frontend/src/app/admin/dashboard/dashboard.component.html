@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-md-8 offset-md-2">
+        <h2 class="text-center" style="margin-bottom:20px;">Movie Dashboard !!</h2>
+        <mat-card style="padding-top: 10px; background: #333; border-radius: 1rem;">
+          <table *ngIf="movies" class="table table-bordered table-striped" style="text-align: center;">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Movie Name</th>
+                <th scope="col">Theatre</th>
+                <th scope="col">Tickets Available</th>
+                <th scope="col">Tickets Booked</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let m of movies">
+                <th scope="row">{{m.movieId}}</th>
+                <td>{{m.movieName}}</td>
+                <td>{{m.theatreName}}</td>
+                <td>{{m.ticketsAvailable}}</td>
+                <td>{{m.ticketsBooked}}</td>
+                <td><button style="margin:3px;" [routerLink]="['/admin/update-movie/' + m.movieId]"  mat-raised-button class = "color-button-a">Update</button>&nbsp;
+                <button (click)="delete(m.movieId)" mat-raised-button class = "color-button-c">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card>
+        <button class="col col-md-2 offset-md-5 mt20" style="margin-top:20px; margin-left: 747px;"  routerLink="/admin/add-movie" mat-raised-button class = "color-button-a">Add Movie</button>
+      </div>
+    </div>
+  </div>
+</div>
+

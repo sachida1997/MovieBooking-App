@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="bootstrap-wrapper">
+  <div class="home container" id="home">
+    <img src="../../../assets/fast-x.jpg" alt="" class="home-img">
+    <div class="home-text">
+      <h1 class="home-title">Fast X</h1>
+      <p style="color:chocolate;">In Cinemas</p>
+      <p>2h 14m • Action, Adventure, Crime, Thriller • UA</p>
+    </div>
+  </div>
+  <div class="movies container" id="movies">
+    <div class="heading">
+      <h2 class="heading-title">Popular Movies</h2>
+    </div>
+    <mat-grid-list cols="4" >
+      <mat-grid-tile *ngFor="let n of [1,2,3,4,5,6,7,8,9,10,11,12]" [routerLink]="'/login'">
+        <img class="rounded " src ="../../../assets/movie{{n}}.jpg">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+<app-footer></app-footer>
+

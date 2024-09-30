@@ -1,0 +1,85 @@
+<app-header></app-header>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row mt10">
+            <div class="col-md-6 offset-md-3" style="padding: 10px; background: #333; border-radius: 1.5rem; margin-top: 30px; margin-bottom: 45px;">
+                <mat-card style="padding:10px;">
+                    <!-- <mat-card-content class="text-center" style="margin-bottom: 20px;"><h4>Create your account !!</h4></mat-card-content> -->
+                <div class="container text-center" style="margin-bottom: 20px;">
+                    <img src="../../../assets/register.jpg" alt="" style="width: 300px;">
+                </div>
+                <!-- {{user| json}} -->
+                
+                <form (ngSubmit)= "formSubmit()" #registerForm="ngForm">
+                    <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Full Name</mat-label>
+                            <input [(ngModel)]="user.fullname" name="fullname" matInput placeholder="Enter name" #fullname="ngModel" required>
+                            <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert alert-danger">
+                                <div *ngIf="fullname.errors?.['required']">
+                                    Name is required.
+                                </div>
+                            </div>
+                    </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>User Name</mat-label>
+                        <input [(ngModel)]="user.username" name="username" matInput placeholder="Username must be unique!!" minlength="4" maxlength="20" #username="ngModel" required>
+                        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                            <div *ngIf="username.errors?.['required']">
+                                Username is required.
+                            </div>
+                            <div *ngIf="username.errors?.['minlength']">
+                                Username must be at least 4 characters long.
+                            </div>
+                            <div *ngIf="username.errors?.['maxlength']">
+                                Username must be at most 20 characters.
+                            </div>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Enter here" #password="ngModel" minlength="6" maxlength="40" required>
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                            <div *ngIf="password.errors?.['required']">
+                                Password is required.
+                            </div>
+                            <div *ngIf="password.errors?.['minlength']">
+                                Password must be at least 6 characters long.
+                            </div>
+                            <div *ngIf="password.errors?.['maxlength']">
+                                Password must be at most 40 characters.
+                            </div>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Enter here" #email="ngModel" email required>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                            <div *ngIf="email.errors?.['required']">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors?.['email']">
+                                Enter proper email address.
+                            </div>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phone</mat-label>
+                        <input [(ngModel)]="user.phoneno" name="phoneno" type="text" matInput placeholder="Enter here" #phoneno="ngModel" [pattern]="integerRegex" required>
+                        <div *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)" class="alert alert-danger">
+                            <div *ngIf="phoneno.errors?.['required']">
+                                Phone number is required.
+                            </div>
+                            <div *ngIf="phoneno.errors?.['pattern']">
+                                Phone no is not valid.
+                            </div>
+                        </div>
+                    </mat-form-field>
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button class="color-button-a" style="margin-bottom: 10px;" [disabled]="!registerForm.form.valid">Register</button>
+                    </div>
+                </form>
+            </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

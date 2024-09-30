@@ -1,0 +1,11 @@
+<mat-toolbar color="warn">
+    <a *ngIf="!isLoggedIn" [routerLink]="'/'" style="font-size: 1.5rem;">Movie<b style="color: rgb(235, 8, 8); font-size: 1.5rem;">Talk</b></a>
+    <a *ngIf="isLoggedIn" style="font-size: 1.5rem;">Movie<b style="color: rgb(235, 8, 8); font-size: 1.5rem;">Talk</b></a>
+    <span class="example-spacer"></span>
+        <a *ngIf="!isLoggedIn" [routerLink]="'/login'" style="display: flex; align-items: center;"><mat-icon aria-hidden="false" aria-label="Example home icon" style="color: #f84464;" fontIcon="login"></mat-icon>
+            Login</a>
+        <a *ngIf="!isLoggedIn" [routerLink]="'/signup'" class="ml20 mr20" style="display: flex; align-items: center;"><mat-icon aria-hidden="false" aria-label="Example home icon" style="color: #f84464;" fontIcon="app_registration"></mat-icon>
+            Register</a>
+        <a *ngIf="isLoggedIn && user" class="ml20 mr20" style="display: flex; align-items: center;"><mat-icon aria-hidden="false" aria-label="Example home icon" style="color:black;" fontIcon="person"></mat-icon>{{user.username}}</a>
+        <a *ngIf="isLoggedIn" (click)="logout()" class="ml20 mr20" style="display: flex; align-items: center;"><mat-icon aria-hidden="false" aria-label="Example home icon" style="color: #f84464;" fontIcon="logout"></mat-icon>Logout</a>
+</mat-toolbar>

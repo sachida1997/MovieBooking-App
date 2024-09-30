@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-md-6 offset-md-3" style="padding: 10px; background: #333; border-radius: 1.5rem;">
+                <mat-card style="padding:10px;">
+                    <!-- <mat-card-content class="text-center" style="margin-bottom:20px;"><h4>Book Tickets !!</h4></mat-card-content> -->
+                    <div class="container text-center" style="margin-bottom: 25px;">
+                        <img src="../../../assets/bookticket.jpg" style="width:min-content;" alt="">
+                    </div>
+                    <form *ngIf="movie" (ngSubmit)="bookMovieTickets()">
+                        <input [value] ="movie.movieId" name="movieId" type="hidden" placeholder="Enter here" required readonly>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Movie Name</mat-label>
+                            <input [(ngModel)]="movie.movieName" name="movieName" matInput placeholder="Enter here" required readonly>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Theatre Name</mat-label>
+                            <input [(ngModel)]="movie.theatreName" name="theatreName"  matInput placeholder="Enter here" required readonly>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>No. of Tickets</mat-label>
+                            <input [(ngModel)]="newTickets" name="newTickets" type="number" matInput placeholder="Enter here" required>
+                        </mat-form-field>
+                        <div class="container text-center">
+                            <button mat-raised-button class = "color-button-a" type="submit" style="margin-bottom: 10px;">Add</button>
+                        </div>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
